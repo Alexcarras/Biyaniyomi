@@ -29,11 +29,11 @@ jobs:
       - name: Install dependencies
         run: flutter pub get
 
-      - name: Build APK (Fat APK & Split Per ABI)
-        run: flutter build apk --release --split-per-abi
+      - name: Build Debug APK
+        run: flutter build apk --debug
 
       - name: Upload APK artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: Biyaniyomi-APKs
-          path: build/app/outputs/flutter-apk/*.apk
+          name: Biyaniyomi-APK-Debug
+          path: build/app/outputs/flutter-apk/app-debug.apk
