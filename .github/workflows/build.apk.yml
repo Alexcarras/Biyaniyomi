@@ -29,6 +29,10 @@ jobs:
       - name: Install dependencies
         run: flutter pub get
 
+      - name: Generate temporary keystore
+        run: |
+          keytool -genkey -v -keystore android/app/keystore.jks -keyalg RSA -keysize 2048 -validity 10000 -alias key -storepass android -keypass android
+
       - name: Build Debug APK
         run: flutter build apk --debug
 
